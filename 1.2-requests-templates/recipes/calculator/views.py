@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.core.paginator import Paginator
 DATA = {
     'omlet': {
         'яйца, шт': 2,
@@ -18,6 +18,18 @@ DATA = {
     },
     # можете добавить свои рецепты ;)
 }
+def rec(request, r):
+    context = {}
+    context['recipe'] = DATA.get(r).copy()
+    servings = int(request.GET.get('servings', '1'))
+
+    for name, amount in context['recipe'].items():
+        context['recipe'][name] = amount * servings
+
+    return render(request, 'calculator/index.html', context)
+
+
+
 
 # Напишите ваш обработчик. Используйте DATA как источник данных
 # Результат - render(request, 'calculator/index.html', context)
