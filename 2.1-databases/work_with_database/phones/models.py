@@ -1,4 +1,3 @@
-
 from django.db import models
 
 
@@ -10,5 +9,3 @@ class Phone(models.Model):
     release_date = models.DateField(null=False)
     lte_exists = models.BooleanField(null=False)
     slug = models.SlugField(null=False, unique=True)
-    def __str__(self):
-        return self.name

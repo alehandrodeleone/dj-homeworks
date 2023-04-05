@@ -1,4 +1,3 @@
-
 import csv
 
 from django.core.management.base import BaseCommand
@@ -17,12 +16,10 @@ class Command(BaseCommand):
 
         for phone in phones:
             x=Phone(id=phone['id'],
-                                 name=phone['name'],
-                                 image=phone['image'],
-                                 price=float(phone['price']),
-                                 release_date=phone['release_date'],
-                                 lte_exists=phone['lte_exists'],
-                                 slug=slugify(phone['name'])
-                                 )
+                    name=phone['name'],
+                    image=phone['image'],
+                    price=float(phone['price']),
+                    release_date=phone['release_date'],
+                    lte_exists=phone['lte_exists'],
+                    slug=slugify(phone['name']))
             x.save()
-
