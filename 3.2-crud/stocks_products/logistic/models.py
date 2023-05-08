@@ -8,12 +8,8 @@ class Product(models.Model):
 
 
 class Stock(models.Model):
-    address = models.CharField(max_length=200, unique=True)
-    products = models.ManyToManyField(
-        Product,
-        through='StockProduct',
-        related_name='stocks',
-    )
+    adress = models.CharField(max_length=200, unique=True)
+    products = models.ManyToManyField(Product,through='StockProduct',related_name='stocks',)
 
 
 class StockProduct(models.Model):
