@@ -17,7 +17,7 @@ class StockSerializer(serializers.ModelSerializer):
     positions = ProductPositionSerializer(many=True)
     class Meta():
         model=Stock
-        fields=['id','adress','product','positions']
+        fields=['id','address','product','positions']
     # настройте сериализатор для склада
 
     def create(self, validated_data):
